@@ -5,10 +5,39 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Book Shop</title>
+        <link rel="stylesheet" href="../../assets/css/reset.css" />
         <link rel="stylesheet" href="./style.css" />
     </head>
     <body>
-        <div id="root"></div>
+        <div class="app">
+            <div class="catalog">
+                <header class="catalog__header">
+                    <div class="catalog__search">
+                        <img
+                            src="../../assets/images/icons/search.svg"
+                            alt="search icon"
+                        />
+                        <input type="search" placeholder="Search for books" />
+                        <button type="button">Search</button>
+                    </div>
+                    <button
+                        class="catalog__order-btn"
+                        type="button"
+                        area-label="order button"
+                    >
+                        <img
+                            src="../../assets/images/icons/shopping-cart.svg"
+                            alt=""
+                        />
+                        <span class="badge">2</span>
+                    </button>
+                </header>
+                <div class="catalog__top-bar">
+                    <div class="catalog__filter"></div>
+                </div>
+            </div>
+            <div class="order"></div>
+        </div>
 
         <script type="module" src="./main.js"></script>
     </body>
