@@ -5,38 +5,172 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Book Shop</title>
+        <link
+            rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+            integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
+            crossorigin="anonymous"
+        />
         <link rel="stylesheet" href="../../assets/css/reset.css" />
         <link rel="stylesheet" href="./style.css" />
     </head>
     <body>
         <div class="app">
-            <div class="catalog">
-                <header class="catalog__header">
-                    <div class="catalog__search">
-                        <img
-                            src="../../assets/images/icons/search.svg"
-                            alt="search icon"
-                        />
-                        <input type="search" placeholder="Search for books" />
-                        <button type="button">Search</button>
+            <header class="app__header">
+                <h1 class="app__title">Welcome to amazing book shop</h1>
+            </header>
+            <div class="app__main">
+                <div class="catalog">
+                    <header class="catalog__header">
+                        <div class="catalog__search">
+                            <img
+                                src="../../assets/images/icons/search.svg"
+                                alt="search icon"
+                            />
+                            <input
+                                type="search"
+                                placeholder="Search for books"
+                            />
+                            <button type="button">Search</button>
+                        </div>
+                    </header>
+                    <div class="catalog__top-bar">
+                        <div class="catalog__filter">
+                            <p>Sort by:</p>
+                            <select name="sortBy" id="sortBy">
+                                <option value="title-ascending">
+                                    Alphabetically, A-Z
+                                </option>
+                                <option value="title-descending">
+                                    Alphabetically, Z-A
+                                </option>
+                                <option value="price-ascending">
+                                    Price, low to high
+                                </option>
+                                <option value="price-descending">
+                                    Price, high to low
+                                </option>
+                            </select>
+                        </div>
+                        <div class="catalog__right">
+                            <button type="button" class="select">
+                                <i class="fas fa-th-large"></i>
+                            </button>
+                            <button type="button">
+                                <i class="fas fa-list-ul"></i>
+                            </button>
+                        </div>
                     </div>
-                    <button
-                        class="catalog__order-btn"
-                        type="button"
-                        area-label="order button"
-                    >
-                        <img
-                            src="../../assets/images/icons/shopping-cart.svg"
-                            alt=""
-                        />
-                        <span class="badge">2</span>
-                    </button>
-                </header>
-                <div class="catalog__top-bar">
-                    <div class="catalog__filter"></div>
+                    <ul class="catalog__list">
+                        <li class="catalog__item">
+                            <div class="surface-box">
+                                <button>
+                                    <i class="fas fa-search-plus"></i>
+                                </button>
+                                <button>
+                                    <i class="fas fa-shopping-bag"></i>
+                                </button>
+                            </div>
+                            <img
+                                src="../../assets/images/books/effective-javascript.jpg"
+                                alt="book cover"
+                            />
+                            <div class="book-label">
+                                <h2 class="book-name">Effective javascript</h2>
+                                <p class="book-price">$20</p>
+                            </div>
+                        </li>
+                        <li class="catalog__item">
+                            <div class="surface-box">
+                                <button>
+                                    <i class="fas fa-search-plus"></i>
+                                </button>
+                                <button>
+                                    <i class="fas fa-shopping-bag"></i>
+                                </button>
+                            </div>
+                            <img
+                                src="../../assets/images/books/effective-javascript.jpg"
+                                alt="book cover"
+                            />
+                            <div class="book-label">
+                                <h2 class="book-name">Effective javascript</h2>
+                                <p class="book-price">$20</p>
+                            </div>
+                        </li>
+                        <li class="catalog__item">
+                            <div class="surface-box">
+                                <button>
+                                    <i class="fas fa-search-plus"></i>
+                                </button>
+                                <button>
+                                    <i class="fas fa-shopping-bag"></i>
+                                </button>
+                            </div>
+                            <img
+                                src="../../assets/images/books/effective-javascript.jpg"
+                                alt="book cover"
+                            />
+                            <div class="book-label">
+                                <h2 class="book-name">Effective javascript</h2>
+                                <p class="book-price">$20</p>
+                            </div>
+                        </li>
+                        <li class="catalog__item">
+                            <div class="surface-box">
+                                <button>
+                                    <i class="fas fa-search-plus"></i>
+                                </button>
+                                <button>
+                                    <i class="fas fa-shopping-bag"></i>
+                                </button>
+                            </div>
+                            <img
+                                src="../../assets/images/books/effective-javascript.jpg"
+                                alt="book cover"
+                            />
+                            <div class="book-label">
+                                <h2 class="book-name">Effective javascript</h2>
+                                <p class="book-price">$20</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="order">
+                    <h2 class="order__title">
+                        Total sum: <span class="order__price">$0</span>
+                    </h2>
+                    <button class="order__btn">Confirm Order</button>
+                    <ul class="order__list">
+                        <li class="order__item">
+                            <button class="order__close-btn">
+                                <img
+                                    src="../../assets/images/icons/x.svg"
+                                    alt=""
+                                    class="order__close-img"
+                                />
+                            </button>
+
+                            <img
+                                class="order__book-image"
+                                src="../../assets/images/books/effective-javascript.jpg"
+                                alt="book cover"
+                            />
+                            <div class="order__book-label">
+                                <p class="order__book-author">
+                                    Adham Muzaffarov
+                                </p>
+                                <h3 class="order__book-name">
+                                    Effective javascript
+                                </h3>
+
+                                <p class="order__book-price">$20</p>
+                            </div>
+                        </li>
+                    </ul>
+                    <button class="order__btn">Refresh</button>
                 </div>
             </div>
-            <div class="order"></div>
         </div>
 
         <script type="module" src="./main.js"></script>

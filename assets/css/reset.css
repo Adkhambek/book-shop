@@ -51,7 +51,7 @@ body {
     font-family: "Nunito", sans-serif;
     background-color: #d3c3b6;
     color: #93847a;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
 }
 
 a {
@@ -64,7 +64,8 @@ h1 {
 }
 
 h2 {
-    font-size: 2.4rem;
+    font-weight: 700;
+    font-size: 2rem;
 }
 
 h3 {

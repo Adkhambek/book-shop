@@ -1,13 +1,18 @@
-body {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.app {
+    width: 114rem;
+    margin: 2rem auto;
 }
 
-.app {
-    width: 100rem;
-    height: 90%;
+.app__header {
+    padding: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    border-radius: 3rem;
+    background-color: #fcf8f5;
+    box-shadow: 0 10px 20px -10px rgba(130, 108, 100, 0.4);
+}
+
+.app__main {
     display: flex;
 }
 
@@ -19,29 +24,15 @@ body {
     box-shadow: 0 10px 20px -10px rgba(130, 108, 100, 0.4);
 }
 
-.catalog__header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.order {
-    width: 30%;
-    border-radius: 0 3rem 3rem 0;
-    background-color: #efe5da;
-    box-shadow: 0 10px 20px -10px rgba(130, 108, 100, 0.4);
-}
-
 .catalog__search {
     position: relative;
-    width: 85%;
     display: flex;
     gap: 1rem;
 }
 
 .catalog__search input {
     flex-grow: 1;
-    padding: 2rem 2rem 2rem 4rem;
+    padding: 2rem 2rem 2rem 4.5rem;
     background-color: #efe5da;
     border-radius: 5rem;
     font-size: 1.6rem;
@@ -78,28 +69,202 @@ input[type="search"]::-webkit-search-results-decoration {
     border-radius: 5rem;
 }
 
-.catalog__order-btn {
-    width: 6.5rem;
-    height: 6.5rem;
-    border-radius: 50%;
-    background-color: #efe5da;
+.catalog__search button:hover {
+    background-color: #da6064;
+}
+
+.catalog__top-bar {
+    margin-top: 4rem;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+}
+
+.catalog__filter {
+    display: flex;
+    align-items: center;
+}
+
+.catalog__filter select {
+    padding: 0.5rem;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: #93847a;
+}
+
+.catalog__filter option:disabled {
+    color: #93847a;
+}
+
+.catalog__right button {
+    background-color: transparent;
+    font-size: 2.2rem;
+    color: #93847a;
+}
+
+.catalog__right button:hover {
+    color: #f26b6f;
+}
+
+.catalog__right .select {
+    color: #f26b6f;
+}
+
+.catalog__right button:first-child {
+    margin-right: 1.5rem;
+}
+
+.catalog__list {
+    margin: 2rem 0;
+    display: flex;
+    align-items: start;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.catalog__item {
+    overflow: hidden;
+    position: relative;
+    width: calc((100% - 2 * 20px) / 3);
+    padding: 2rem;
+    border-radius: 2rem;
+    background-color: #ffffff;
+    box-shadow: 0 10px 20px -10px rgb(149 149 149 / 50%);
+}
+.catalog__item:hover .surface-box {
+    z-index: 1;
+}
+
+.catalog__item:hover::after {
+    content: "";
+    position: absolute;
+    background: linear-gradient(to top, transparent 0, rgba(0, 0, 0, 0.5) 100%);
+    bottom: 0;
+    top: 0;
+    right: 0;
+    left: 0;
+}
+
+.surface-box {
+    padding: 2rem 3rem;
+    background-color: #ffffff;
+    border-radius: 3rem;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    z-index: -1;
+    transition: all 0.3s ease;
+}
+
+.surface-box button {
+    background-color: transparent;
+    font-size: 2.4rem;
+    color: #93847a;
+}
+
+.surface-box button:hover {
+    color: #da6064;
+}
+
+.surface-box button:first-child {
+    gap: 3rem;
+    margin-right: 2rem;
+}
+
+.catalog__item img {
+    width: 100%;
+}
+
+.book-name {
+    margin-top: 0.5rem;
+    margin-bottom: 0.3;
+}
+
+.book-price {
+    color: #da6064;
+    font-weight: 700;
+    font-size: 2.4rem;
+}
+
+.order {
+    width: 30%;
+    padding: 3rem;
+    text-align: center;
+    border-radius: 0 3rem 3rem 0;
+    background-color: #efe5da;
+    box-shadow: 0 10px 20px -10px rgba(130, 108, 100, 0.4);
+}
+
+.order__title {
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+}
+
+.order__price {
+    color: #da6064;
+}
+
+.order__btn {
+    background-color: #f26b6f;
+    color: #ffffff;
+    font-size: 1.6rem;
+    font-weight: 500;
+    padding: 1.5rem 2rem;
+    border-radius: 5rem;
+}
+
+.order__btn:hover {
+    background-color: #da6064;
+}
+
+.order__list {
+    margin: 3rem 0;
+}
+
+.order__item {
+    padding: 1rem 0;
+    text-align: left;
+    display: flex;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #93847a;
     position: relative;
 }
 
-.catalog__order-btn .badge {
-    display: inline-block;
-    background-color: #f26b6f;
-    color: #ffffff;
-    border-radius: 50%;
-    width: 2rem;
-    height: 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.order__item:first-child {
+    border-top: 1px solid #93847a;
+}
+
+.order__book-image {
+    width: 30%;
+}
+
+.order__close-btn {
+    background-color: transparent;
     position: absolute;
-    top: 0;
     right: 0;
+}
+
+.order__book-label {
+    margin-left: 1rem;
+    width: 60%;
+}
+
+.order__book-name {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0.5rem 0;
+}
+
+.order__book-author {
+    font-size: 1.4rem;
+}
+
+.order__book-price {
+    color: #da6064;
 }
