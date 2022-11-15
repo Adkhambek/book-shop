@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Order</title>
+        <link rel="stylesheet" href="../../assets/css/reset.css" />
+        <link rel="stylesheet" href="./style.css" />
+    </head>
+    <body>
+        <div class="order">
+            <h1 class="order__title">Order Form</h1>
+            <form class="order__form">
+                <fieldset class="customer">
+                    <legend>Customer details</legend>
+                    <label>
+                        <p class="required">Name:</p>
+                        <input
+                            class="customer-input"
+                            type="text"
+                            placeholder="Your first name"
+                            required
+                        />
+                    </label>
+                    <label>
+                        <p class="required">Surname:</p>
+                        <input
+                            class="customer-input"
+                            type="text"
+                            placeholder="Your surname"
+                            required
+                        />
+                    </label>
+                    <label>
+                        <p class="required">Delivery date:</p>
+                        <input
+                            class="customer-input"
+                            type="date"
+                            placeholder="day"
+                            required
+                        />
+                    </label>
+                    <label>
+                        <p class="required">Street:</p>
+                        <input
+                            class="customer-input"
+                            type="text"
+                            placeholder="Your street name"
+                            required
+                        />
+                    </label>
+                    <label>
+                        <p class="required">House number:</p>
+                        <input
+                            class="customer-input"
+                            type="number"
+                            placeholder="Your house number"
+                            required
+                        />
+                    </label>
+                    <label>
+                        <p class="required">Flat number:</p>
+                        <input
+                            class="customer-input"
+                            type="number"
+                            placeholder="Your flat number"
+                            required
+                        />
+                    </label>
+                </fieldset>
+                <fieldset class="payment">
+                    <legend>Payment method</legend>
+                    <label>
+                        <input type="radio" name="payment" />
+                        <p>Card</p>
+                    </label>
+                    <label>
+                        <input type="radio" name="payment" />
+                        <p>Cash</p>
+                    </label>
+                </fieldset>
+                <fieldset class="gifts">
+                    <legend>Choose 2 gifts</legend>
+                    <label>
+                        <input type="checkbox" />
+                        <p>pack as a gift</p>
+                    </label>
+                    <label>
+                        <input type="checkbox" />
+                        <p>add postcard</p>
+                    </label>
+                    <label>
+                        <input type="checkbox" />
+                        <p>provide 2% discount to the next time</p>
+                    </label>
+                    <label>
+                        <input type="checkbox" />
+                        <p>branded pen or pencil</p>
+                    </label>
+                </fieldset>
+                <!-- <button type="submit" disabled>Complete</button> -->
+                <button type="submit">Complete</button>
+                <button type="button">Return to Catalog</button>
+            </form>
+        </div>
+    </body>
+</html>
