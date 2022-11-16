@@ -52,6 +52,7 @@ body {
     background-color: #d3c3b6;
     color: #93847a;
     font-size: 1.6rem;
+    position: relative;
 }
 
 a {
@@ -84,4 +85,8 @@ input {
 button {
     border: none;
     cursor: pointer;
+}
+
+.hidden {
+    display: none !important;
 }
