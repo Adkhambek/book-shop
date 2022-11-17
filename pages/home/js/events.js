@@ -21,6 +21,8 @@ export default async function () {
     const confirmOrderBtn = document.querySelector(".order__btn");
     const cleanOrderBtn = document.querySelector(".clean-btn");
     const orderItems = document.getElementsByClassName("order__item");
+    const catalogItems = document.querySelectorAll(".catalog__item");
+    const orderArea = document.querySelector(".order");
 
     displayModal(btns);
     addOrder(bagBtns);
@@ -66,6 +68,16 @@ export default async function () {
         const btns = document.querySelectorAll(".read-more");
         const bagBtns = document.querySelectorAll(".bag");
 
+        for (const item of ul.children) {
+            item.addEventListener("dragstart", (e) => {
+                e.dataTransfer.setData("text/plain", e.target.dataset.id);
+                search.disabled = true;
+            });
+            item.addEventListener("dragend", () => {
+                search.disabled = false;
+            });
+        }
+
         addOrder(bagBtns);
         displayModal(btns);
     });
@@ -84,6 +96,16 @@ export default async function () {
         ul.innerHTML = null;
 
         ul.append(fragments.getCatalogList(books));
+
+        for (const item of ul.children) {
+            item.addEventListener("dragstart", (e) => {
+                e.dataTransfer.setData("text/plain", e.target.dataset.id);
+                search.disabled = true;
+            });
+            item.addEventListener("dragend", () => {
+                search.disabled = false;
+            });
+        }
 
         const btns = document.querySelectorAll(".read-more");
         const bagBtns = document.querySelectorAll(".bag");
@@ -105,6 +127,16 @@ export default async function () {
         const books = await getData();
         ul.append(fragments.getCatalogList(books));
 
+        for (const item of ul.children) {
+            item.addEventListener("dragstart", (e) => {
+                e.dataTransfer.setData("text/plain", e.target.dataset.id);
+                search.disabled = true;
+            });
+            item.addEventListener("dragend", () => {
+                search.disabled = false;
+            });
+        }
+
         const btns = document.querySelectorAll(".read-more");
         const bagBtns = document.querySelectorAll(".bag");
 
@@ -118,6 +150,58 @@ export default async function () {
         totalPriceHeading.textContent = "$" + total;
         confirmOrderBtn.classList.add("hidden");
         cleanOrderBtn.classList.add("hidden");
+    });
+
+    orderArea.addEventListener("dragover", (e) => {
+        e.preventDefault();
+    });
+
+    orderArea.addEventListener("dragenter", (e) => {
+        e.preventDefault();
+    });
+
+    catalogItems.forEach((item) => {
+        item.addEventListener("dragstart", (e) => {
+            e.dataTransfer.setData("text/plain", e.target.dataset.id);
+            search.disabled = true;
+        });
+        item.addEventListener("dragend", () => {
+            search.disabled = false;
+        });
+    });
+
+    orderArea.addEventListener("drop", async (e) => {
+        if (confirmOrderBtn.classList.contains("hidden")) {
+            confirmOrderBtn.classList.remove("hidden");
+        }
+        const id = e.dataTransfer.getData("text/plain");
+        const book = helper.findById(await getData(), +id);
+        book.title = helper.truncate(book.title, 40);
+        total += book.price;
+        totalPriceHeading.textContent = "$" + total;
+        const orderItem = document.createElement("li");
+        orderItem.className = "order__item";
+        orderItem.innerHTML = staticHTML.getOrderListItem(book);
+        orderList.append(orderItem);
+        orderItem.firstChild.addEventListener("click", (event) => {
+            if (orderItems.length === 1) {
+                confirmOrderBtn.classList.add("hidden");
+                cleanOrderBtn.classList.add("hidden");
+            }
+            const parent = event.target.closest("li");
+            let price = parent.querySelector(".order__book-price").textContent;
+            price = price.slice(1, price.length);
+            total -= price;
+            totalPriceHeading.textContent = "$" + total;
+
+            parent.remove();
+        });
+
+        if (cleanOrderBtn.classList.contains("hidden")) {
+            cleanOrderBtn.classList.remove("hidden");
+        }
+        search.disabled = false;
+        e.preventDefault();
     });
 
     function addOrder(btns) {

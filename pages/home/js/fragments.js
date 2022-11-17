@@ -38,6 +38,8 @@ export function getCatalogList(books) {
     for (const book of books) {
         const li = document.createElement("li");
         li.className = "catalog__item";
+        li.draggable = true;
+        li.setAttribute("data-id", book.id);
         book.title = truncate(book.title, 60);
         li.innerHTML = staticHTML.catalogItem(book);
         fragment.append(li);
