@@ -7,7 +7,7 @@
     padding: 2rem;
     margin-bottom: 2rem;
     text-align: center;
-    border-radius: 3rem;
+    border-radius: 10rem;
     background-color: #fcf8f5;
     box-shadow: 0 10px 20px -10px rgba(130, 108, 100, 0.4);
 }
@@ -239,6 +239,7 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .order__btn {
+    display: inline-block;
     background-color: #f26b6f;
     color: #ffffff;
     font-size: 1.6rem;
@@ -270,9 +271,11 @@ input[type="search"]::-webkit-search-results-decoration {
 
 .order__book-image {
     width: 30%;
+    height: 13rem;
 }
 
 .order__close-btn {
+    align-self: flex-start;
     background-color: transparent;
     position: absolute;
     right: 0;
@@ -368,6 +371,7 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .book-name {
+    min-height: 5.5rem;
     margin-top: 0.5rem;
     margin-bottom: 0.3;
 }

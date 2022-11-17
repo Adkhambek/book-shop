@@ -46,9 +46,9 @@ export const catalogTopBar = `<div class="catalog__filter">
 export const order = `<h2 class="order__title">
     Total sum: <span class="order__price">$0</span>
 </h2>
-<button class="order__btn" hidden>Confirm Order</button>
+<a href="/book-shop/pages/order" class="order__btn hidden" hidden>Confirm Order</a>
 <ul class="order__list"></ul>
-<button class="order__btn clean-btn" hidden>Clean</button>`;
+<button class="order__btn clean-btn hidden">Clean</button>`;
 
 export const modal = (book) => {
     return `<div class="modal__card">

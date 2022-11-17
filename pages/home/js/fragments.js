@@ -1,6 +1,6 @@
 import { getData } from "./data.js";
 import * as staticHTML from "./innerHTML.js";
-import { findById } from "./utils/helpers.js";
+import { findById, truncate } from "./utils/helpers.js";
 
 export function getHeader() {
     const fragment = new DocumentFragment();
@@ -35,10 +35,10 @@ export function getModal() {
 
 export function getCatalogList(books) {
     const fragment = new DocumentFragment();
-
     for (const book of books) {
         const li = document.createElement("li");
         li.className = "catalog__item";
+        book.title = truncate(book.title, 60);
         li.innerHTML = staticHTML.catalogItem(book);
         fragment.append(li);
     }
@@ -50,7 +50,9 @@ export function getOrderListItem(book) {
     const fragment = new DocumentFragment();
     const li = document.createElement("li");
     li.className = "order__item";
+    book.title = truncate(book.title, 60);
     li.innerHTML = staticHTML.getOrderListItem(book);
+    staticHTML.getOrderListItem(book);
     fragment.append(li);
     return fragment;
 }

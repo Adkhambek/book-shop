@@ -20,7 +20,7 @@ export default async function () {
     const resetBtn = document.querySelector(".reset-btn");
     const confirmOrderBtn = document.querySelector(".order__btn");
     const cleanOrderBtn = document.querySelector(".clean-btn");
-    const removeOrderBtns = document.querySelectorAll(".order__close-btn");
+    const orderItems = document.getElementsByClassName("order__item");
 
     displayModal(btns);
     addOrder(bagBtns);
@@ -112,22 +112,47 @@ export default async function () {
         displayModal(btns);
     });
 
-    removeOrderBtns.forEach((btn) => {
-        btn.addEventListener("click", (event) => {});
+    cleanOrderBtn.addEventListener("click", () => {
+        orderList.innerHTML = null;
+        total = 0;
+        totalPriceHeading.textContent = "$" + total;
+        confirmOrderBtn.classList.add("hidden");
+        cleanOrderBtn.classList.add("hidden");
     });
 
     function addOrder(btns) {
         btns.forEach((btn) => {
             btn.addEventListener("click", async (event) => {
-                if (cleanOrderBtn.hidden) {
-                    confirmOrderBtn.hidden = false;
-                    cleanOrderBtn.hidden = false;
+                if (confirmOrderBtn.classList.contains("hidden")) {
+                    confirmOrderBtn.classList.remove("hidden");
                 }
                 const id = event.target.closest("button").dataset.id;
                 const book = helper.findById(await getData(), +id);
+                book.title = helper.truncate(book.title, 40);
                 total += book.price;
                 totalPriceHeading.textContent = "$" + total;
-                orderList.append(fragments.getOrderListItem(book));
+                const orderItem = document.createElement("li");
+                orderItem.className = "order__item";
+                orderItem.innerHTML = staticHTML.getOrderListItem(book);
+                orderList.append(orderItem);
+                if (cleanOrderBtn.classList.contains("hidden")) {
+                    cleanOrderBtn.classList.remove("hidden");
+                }
+
+                orderItem.firstChild.addEventListener("click", (event) => {
+                    if (orderItems.length === 1) {
+                        confirmOrderBtn.classList.add("hidden");
+                        cleanOrderBtn.classList.add("hidden");
+                    }
+                    const parent = event.target.closest("li");
+                    let price =
+                        parent.querySelector(".order__book-price").textContent;
+                    price = price.slice(1, price.length);
+                    total -= price;
+                    totalPriceHeading.textContent = "$" + total;
+
+                    parent.remove();
+                });
             });
         });
     }
@@ -156,17 +181,43 @@ export default async function () {
                 const modalBagBtn = modal.querySelector(".card-btn");
 
                 modalBagBtn.addEventListener("click", async (event) => {
-                    if (cleanOrderBtn.hidden) {
-                        confirmOrderBtn.hidden = false;
-                        cleanOrderBtn.hidden = false;
+                    if (cleanOrderBtn.classList.contains("hidden")) {
+                        cleanOrderBtn.classList.remove("hidden");
                     }
 
                     const id = event.target.closest("button").dataset.id;
                     const book = helper.findById(await getData(), +id);
+                    book.title = helper.truncate(book.title, 40);
                     total += book.price;
                     totalPriceHeading.textContent = "$" + total;
-                    orderList.append(fragments.getOrderListItem(book));
+                    const orderItem = document.createElement("li");
+                    orderItem.className = "order__item";
+                    orderItem.innerHTML = staticHTML.getOrderListItem(book);
+                    orderList.append(orderItem);
+                    if (cleanOrderBtn.classList.contains("hidden")) {
+                        cleanOrderBtn.classList.remove("hidden");
+                    }
 
+                    orderItem.firstChild.addEventListener("click", (event) => {
+                        if (orderItems.length === 1) {
+                            confirmOrderBtn.classList.add("hidden");
+                            cleanOrderBtn.classList.add("hidden");
+                        }
+                        const parent = event.target.closest("li");
+                        let price =
+                            parent.querySelector(
+                                ".order__book-price"
+                            ).textContent;
+                        price = price.slice(1, price.length);
+                        total -= price;
+                        totalPriceHeading.textContent = "$" + total;
+
+                        parent.remove();
+                    });
+
+                    if (confirmOrderBtn.classList.contains("hidden")) {
+                        confirmOrderBtn.classList.remove("hidden");
+                    }
                     close();
                 });
             });

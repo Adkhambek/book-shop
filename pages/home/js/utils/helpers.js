@@ -31,6 +31,12 @@ export function sort(books, by) {
 export function search(books, key) {
     return books.filter((val) => {
         const title = val.title.toLowerCase();
-        return title.includes(key.toLowerCase())
+        return title.includes(key.toLowerCase());
     });
+}
+
+export function truncate(text, maxLength) {
+    if (text.length > maxLength) {
+        return text.slice(0, maxLength - 1) + " ...";
+    } else return text;
 }
