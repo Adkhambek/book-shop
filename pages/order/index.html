@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Order</title>
+        <link rel="stylesheet" href="../../assets/css/reset.css" />
+        <link rel="stylesheet" href="./style.css" />
+    </head>
+    <body>
+        <div class="order">
+            <h1 class="order__title">Order Form</h1>
+            <form id="form" class="order__form">
+                <fieldset class="customer">
+                    <legend>Customer details</legend>
+                    <label>
+                        <p class="required">Name:</p>
+                        <input
+                            data-name="name"
+                            class="customer-input"
+                            type="text"
+                            placeholder="Your first name"
+                        />
+                    </label>
+                    <label>
+                        <p class="required">Surname:</p>
+                        <input
+                            data-name="surname"
+                            class="customer-input"
+                            type="text"
+                            placeholder="Your surname"
+                            required
+                        />
+                    </label>
+                    <label>
+                        <p class="required">Delivery date:</p>
+                        <input
+                            data-name="date"
+                            class="customer-input"
+                            type="date"
+                            placeholder="day"
+                            required
+                        />
+                    </label>
+                    <label>
+                        <p class="required">Street:</p>
+                        <input
+                            data-name="street"
+                            class="customer-input"
+                            type="text"
+                            placeholder="Your street name"
+                            required
+                        />
+                    </label>
+                    <label>
+                        <p class="required">House number:</p>
+                        <input
+                            data-name="house"
+                            class="customer-input"
+                            type="number"
+                            placeholder="Your house number"
+                            required
+                        />
+                    </label>
+                    <label>
+                        <p class="required">Flat number:</p>
+                        <input
+                            data-name="flat"
+                            class="customer-input"
+                            type="number"
+                            placeholder="Your flat number"
+                            required
+                        />
+                    </label>
+                </fieldset>
+                <fieldset class="payment">
+                    <legend>Payment method</legend>
+                    <label>
+                        <input type="radio" name="payment" value="card" />
+                        <p>Card</p>
+                    </label>
+                    <label>
+                        <input type="radio" name="payment" value="cash" />
+                        <p>Cash</p>
+                    </label>
+                </fieldset>
+                <fieldset class="gifts">
+                    <legend>Choose 2 gifts</legend>
+                    <label>
+                        <input type="checkbox" value="pack as a gift" />
+                        <p>pack as a gift</p>
+                    </label>
+                    <label>
+                        <input type="checkbox" value="add postcard" />
+                        <p>add postcard</p>
+                    </label>
+                    <label>
+                        <input
+                            type="checkbox"
+                            value="provide 2% discount to the next time"
+                        />
+                        <p>provide 2% discount to the next time</p>
+                    </label>
+                    <label>
+                        <input type="checkbox" value="branded pen or pencil" />
+                        <p>branded pen or pencil</p>
+                    </label>
+                </fieldset>
+                <!-- <button type="submit" disabled>Complete</button> -->
+                <button type="submit" class="submit" disabled>Complete</button>
+                <a href="/book-shop/pages/home">Return to Catalog</a>
+            </form>
+        </div>
+        <div class="modal" hidden>
+            <div class="modal-card">
+                <h2>Thank you for your order</h2>
+                <p>Please check your order information</p>
+                <ul class="order-list">
+                    <li class="order-item">
+                        <b>Your name: </b>
+                        <i class="order-value">Adham</i>
+                    </li>
+                    <li class="order-item">
+                        <b>Your surname: </b>
+                        <i class="order-value"></i>
+                    </li>
+                    <li class="order-item">
+                        <b>Delivery date: </b>
+                        <i class="order-value"></i>
+                    </li>
+                    <li class="order-item">
+                        <b>Street: </b>
+                        <i class="order-value"></i>
+                    </li>
+                    <li class="order-item">
+                        <b>House number: </b>
+                        <i class="order-value"></i>
+                    </li>
+                    <li class="order-item">
+                        <b>Flat number: </b>
+                        <i class="order-value"></i>
+                    </li>
+                    <li class="order-item">
+                        <b>Payment type: </b>
+                        <i class="order-value"></i>
+                    </li>
+                    <li class="order-item">
+                        <b>Gifts: </b>
+                        <i class="order-value"></i>
+                    </li>
+                </ul>
+                <div class="buttons">
+                    <button class="order-btn">Order</button>
+                    <button class="cancel-btn">Cancel</button>
+                </div>
+            </div>
+        </div>
+        <script src="./main.js"></script>
+    </body>
+</html>
