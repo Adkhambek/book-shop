@@ -38,6 +38,21 @@ label {
     border: 1px solid #74b276;
 }
 
+.customer .error {
+    border: 1px solid #f26b6f !important;
+}
+
+fieldset.error {
+    border: 1px solid #f26b6f !important;
+}
+
+.errorMessage {
+    display: inline-block;
+    color: #f26b6f !important;
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+}
+
 .required::after {
     content: "*";
     color: #f26b6f;
@@ -101,7 +116,9 @@ input[type="checkbox"]:checked {
     border: 2px solid #fff;
 }
 
-button {
+button,
+a {
+    display: inline-block;
     border: 2px solid #f26b6f;
     color: #f26b6f;
     padding: 1rem 2rem;
@@ -110,6 +127,7 @@ button {
     margin-right: 1rem;
 }
 
+a:hover,
 button:hover {
     background-color: #f26b6f;
     color: #ffffff;
@@ -120,4 +138,49 @@ button[type="submit"]:disabled {
     background-color: #aaaaaa;
     color: #777777;
     border: none;
+}
+
+.modal {
+    font-size: 1.8rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(3px);
+}
+
+.modal-card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    background-color: #fcf8f5;
+    border-radius: 2rem;
+    padding: 4rem 6rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-card h2 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.order-list {
+    list-style: square;
+    margin: 2rem 0;
+    text-align: left;
+    align-self: center;
+}
+
+.order-item {
+    margin-bottom: 0.5rem;
+}
+
+.modal-card button {
+    display: inline;
 }
