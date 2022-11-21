@@ -1,3 +1,3 @@
 # Book Shop
 
-https://adkhambek.github.io/book-shop
+https://adkhambek.github.io/book-shop/pages/home
